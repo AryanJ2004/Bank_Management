@@ -70,8 +70,16 @@ function Dashboard() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const validateFormData = () => {
+    return Object.values(formData).every((value) => value.trim() !== '');
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validateFormData()) {
+      alert('Please fill in all fields.');
+      return;
+    }
     try {
       await axios.post('https://bankmang2.vercel.app/api/banks', formData, {
         headers: { 'x-auth-token': localStorage.getItem('token') },
@@ -88,6 +96,10 @@ function Dashboard() {
 
   const handleUpdate = async (e) => {
     e.preventDefault();
+    if (!validateFormData()) {
+      alert('Please fill in all fields.');
+      return;
+    }
     try {
       await axios.put(`https://bankmang2.vercel.app/api/banks/${currentAccountId}`, formData, {
         headers: { 'x-auth-token': localStorage.getItem('token') },
