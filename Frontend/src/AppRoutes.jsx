@@ -1,6 +1,5 @@
-// AppRoutes.js
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
@@ -16,6 +15,9 @@ function AppRoutes() {
       <Route path="/register" element={<Register />} />
       <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
       <Route path="/admin" element={<PrivateRoute><AdminDashboard /></PrivateRoute>} />
+
+      {/* Catch-all route for undefined paths */}
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }
