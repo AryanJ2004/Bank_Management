@@ -77,7 +77,7 @@ Start the frontend application:
 npm start
 ```
 Usage
-Access the application at http://localhost:3000.
+Access the application at http://localhost:5173.
 Register a new user and follow the instructions to verify your email and log in.
 Users can edit their account details or delete their account from the account settings.
 Access the admin panel to manage users.
