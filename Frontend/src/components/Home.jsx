@@ -83,7 +83,7 @@ function Home() {
                 <li className="mb-2"><FaLock className="text-primary me-2" /> 24/7 account monitoring</li>
                 <li className="mb-2"><FaBolt className="text-primary me-2" /> Instant transfers between accounts</li>
               </ul>
-              <Link to="/about" className="btn btn-primary mt-3">Learn More</Link>
+              <Link to="/" className="btn btn-primary mt-3">Learn More</Link>
             </div>
             <div className="col-md-6">
               <img src={features} alt="Banking features" className="img-fluid rounded shadow" />

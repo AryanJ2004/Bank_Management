@@ -47,7 +47,7 @@ const Navbar = () => {
                 marginRight: 1,
               }}
             >
-              BH
+              BS
             </Box>
             BankSys
           </Box>
