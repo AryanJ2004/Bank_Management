@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 5000;
 const allowedOrigins = [
   'http://localhost:5173',
   'https://bankfrontendman.vercel.app',
-  'https://your-production-frontend.com', // Ensure to replace with your actual production URL
+  'https://bankfroend.vercel.app', // Ensure to replace with your actual production URL
 ];
 
 // CORS options with origin check
