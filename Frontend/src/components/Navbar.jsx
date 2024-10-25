@@ -49,7 +49,7 @@ const Navbar = () => {
             >
               BH
             </Box>
-            Bank Hamara
+            BankSys
           </Box>
         </Typography>
         

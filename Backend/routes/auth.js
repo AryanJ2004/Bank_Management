@@ -4,32 +4,29 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const dotenv = require('dotenv');
-const sendOTP = require('./sendOtp');  // Import sendOTP module
+const sendOTP = require('./sendOtp');  
 
 dotenv.config();
 
-// Helper function to generate a 6-digit OTP
+
 function generateOTP() {
   return Math.floor(100000 + Math.random() * 900000).toString();
 }
 
-// Register user with OTP
 router.post('/register', async (req, res) => {
   try {
     const { username, email, password } = req.body;
 
-    // Check if user already exists
+
     let user = await User.findOne({ email });
     if (user) return res.status(400).json({ message: 'User already exists' });
 
-    // Hash password before saving
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Generate OTP and set expiration time
     const otp = generateOTP();
     const otpExpiry = Date.now() + 5 * 60 * 1000;
 
-    // Create and save new user with OTP and expiration
+
     user = new User({
       username,
       email,
@@ -39,7 +36,7 @@ router.post('/register', async (req, res) => {
     });
     await user.save();
 
-    // Send OTP email
+ 
     await sendOTP(email, otp);
 
     res.status(200).json({ message: 'OTP sent to your email' });
@@ -54,7 +51,7 @@ router.post('/login', async (req, res) => {
     const { email, password } = req.body;
     let user = await User.findOne({ email });
     
-    console.log('Login User:', user); // Debugging line
+    console.log('Login User:', user); 
 
     if (!user) return res.status(400).json({ message: 'Invalid credentials' });
 
@@ -62,7 +59,7 @@ router.post('/login', async (req, res) => {
     
 
 
-    // Check if the password matches
+
     if (!isMatch) {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
@@ -78,7 +75,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// OTP verification route
+
 router.post('/verify-otp', async (req, res) => {
   try {
     const { email, otp } = req.body;
@@ -88,13 +85,12 @@ router.post('/verify-otp', async (req, res) => {
       return res.status(400).json({ message: 'Invalid or expired OTP' });
     }
 
-    // Update user as verified and clear OTP fields
     user.verified = true;
     user.otp = undefined;
     user.otpExpiry = undefined;
     await user.save();
 
-    // Create and send JWT
+
     const payload = { user: { id: user.id } };
     jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' }, (err, token) => {
       if (err) throw err;

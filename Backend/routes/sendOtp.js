@@ -65,7 +65,7 @@ const sendOTP = async (email, otp) => {
                     <h1>Verify Your Account</h1>
                 </div>
                 <div class="content">
-                    <p>Thank you for registering with <strong>Your App Name</strong>.</p>
+                    <p>Thank you for registering with <strong>Bank Management System</strong>.</p>
                     <p>Please use the following OTP to verify your account:</p>
                     <div class="otp">${otp}</div>
                     <p>This OTP will expire in 10 minutes.</p>
