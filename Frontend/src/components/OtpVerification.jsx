@@ -12,7 +12,7 @@ function OTPVerification() {
         e.preventDefault();
         try {
             const email = localStorage.getItem('email'); // Get email from local storage
-            const response = await axios.post('https://bankbackend1.vercel.app/api/auth/verify-otp', { email, otp });
+            const response = await axios.post('https://bankmang2.vercel.app/api/auth/verify-otp', { email, otp });
             localStorage.setItem('token', response.data.token); // Store JWT token
             navigate('/dashboard'); // Redirect to dashboard or relevant page
         } catch (err) {

@@ -17,7 +17,7 @@ function AdminDashboard() {
 
   const fetchAllBankAccounts = async () => {
     try {
-      const res = await axios.get('https://bankbackend1.vercel.app/api/admin/bank-accounts', {
+      const res = await axios.get('https://bankmang2.vercel.app/api/admin/bank-accounts', {
         headers: { 'x-auth-token': localStorage.getItem('token') },
       });
       setBankAccounts(res.data);
@@ -34,7 +34,7 @@ function AdminDashboard() {
       return;
     }
     try {
-      const res = await axios.get(`http://localhost:5000/api/admin/search?query=${searchQuery}`, {
+      const res = await axios.get(`https://bankmang2.vercel.app/api/admin/search?query=${searchQuery}`, {
         headers: { 'x-auth-token': localStorage.getItem('token') },
       });
       setBankAccounts(res.data.bankAccounts);

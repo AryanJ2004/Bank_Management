@@ -15,7 +15,7 @@ function Register() {
     e.preventDefault();
     try {
       console.log('Submitting:', { username, email, password });  // Add this to log form data
-      const res = await axios.post('https://bankbackend1.vercel.app/api/auth/register', { username, email, password });
+      const res = await axios.post('https://bankmang2.vercel.app/api/auth/register', { username, email, password });
       setOtpSent(true);
       alert(res.data.message);
     } catch (err) {
@@ -28,7 +28,7 @@ function Register() {
 const handleVerifyOtp = async (e) => {
   e.preventDefault();
   try {
-    const res = await axios.post('https://bankbackend1.vercel.app/api/auth/verify-otp', { email, otp });
+    const res = await axios.post('https://bankmang2.vercel.app/api/auth/verify-otp', { email, otp });
     localStorage.setItem('token', res.data.token);
 
     // Pass success message as state in navigate function

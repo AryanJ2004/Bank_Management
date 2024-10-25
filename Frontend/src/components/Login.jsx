@@ -12,7 +12,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('https://bankbackend1.vercel.app/api/auth/login', { email, password });
+      const res = await axios.post('https://bankmang2.vercel.app/api/auth/login', { email, password });
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('isAdmin', res.data.isAdmin);
   
