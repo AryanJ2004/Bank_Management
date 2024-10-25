@@ -7,12 +7,6 @@
       "config": { "includeFiles": ["dist/**"] }
     }
   ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "server.js"
-    }
-  ],
   "rewrites": [
     {
       "source": "/admin",
@@ -31,8 +25,8 @@
       "destination": "/api/users/:path*"
     },
     {
-      "source": "/((?!api/.*).*)",
-      "destination": "/index.html"
+      "source": "/((?!api/).*)",
+      "destination": "/server.js"
     }
   ]
 }
