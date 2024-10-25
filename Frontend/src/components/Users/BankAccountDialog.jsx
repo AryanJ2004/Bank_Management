@@ -18,8 +18,6 @@ const BankAccountDialog = ({ open, onClose, formData, handleChange, handleSubmit
             fullWidth
             value={formData[field]}
             onChange={handleChange}
-            error={!formData[field]} // Show error if the field is empty
-            helperText={!formData[field] ? 'This field is required.' : ''}
           />
         ))}
       </DialogContent>
