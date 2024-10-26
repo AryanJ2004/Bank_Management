@@ -13,6 +13,14 @@
       "destination": "/server.js"
     },
     {
+      "source": "/login",
+      "destination": "/api/login"
+    },
+    {
+      "source": "/register",
+      "destination": "/api/register"
+    },
+    {
       "source": "/(.*)",
       "destination": "/server.js"
     }
