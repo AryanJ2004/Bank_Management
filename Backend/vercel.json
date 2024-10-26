@@ -8,21 +8,9 @@
     }
   ],
   "rewrites": [
-   {
-      "source": "/admin",
-      "destination": "/api/admin"
-    },
     {
-      "source": "/admin/:path*",
-      "destination": "/api/admin/:path*"
-    },
-    {
-      "source": "/users",
-      "destination": "/api/users"
-    },
-    {
-      "source": "/users/:path*",
-      "destination": "/api/users/:path*"
+      "source": "/api/(.*)",
+      "destination": "/server.js"
     },
     {
       "source": "/(.*)",
