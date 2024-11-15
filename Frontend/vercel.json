@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://auth-plus.vercel.app/api/$1"
+      "destination": "https://bankmang2.vercel.app/api/$1"
     },
     {
       "source": "/(.*)",
